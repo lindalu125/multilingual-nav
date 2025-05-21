@@ -1,0 +1,252 @@
+{
+  "common": {
+    "navigation": {
+      "home": "首页",
+      "tools": "工具",
+      "blog": "博客",
+      "about": "关于",
+      "contact": "联系我们"
+    },
+    "actions": {
+      "login": "登录",
+      "register": "注册",
+      "logout": "退出",
+      "profile": "个人资料",
+      "submit": "提交",
+      "subscribe": "订阅",
+      "search": "搜索",
+      "donate": "打赏"
+    },
+    "theme": {
+      "light": "浅色模式",
+      "dark": "深色模式"
+    },
+    "footer": {
+      "rights": "版权所有",
+      "privacy": "隐私政策",
+      "terms": "服务条款"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "寻找最适合您需求的工具",
+      "subtitle": "发现、比较和使用最适合您项目的工具",
+      "cta_primary": "探索工具",
+      "cta_secondary": "提交工具"
+    },
+    "categories": {
+      "title": "按类别浏览",
+      "view_all": "查看全部"
+    },
+    "featured": {
+      "title": "精选工具",
+      "view_all": "查看所有精选"
+    },
+    "blog": {
+      "title": "最新文章",
+      "read_more": "阅读更多"
+    },
+    "newsletter": {
+      "title": "订阅我们的通讯",
+      "subtitle": "获取最新工具和文章直接发送到您的邮箱",
+      "placeholder": "您的电子邮箱地址",
+      "button": "订阅",
+      "success": "感谢您的订阅！",
+      "error": "出现错误，请重试。"
+    }
+  },
+  "tools": {
+    "search": {
+      "placeholder": "搜索工具...",
+      "no_results": "未找到符合您搜索的工具"
+    },
+    "filter": {
+      "title": "筛选",
+      "categories": "类别",
+      "tags": "标签",
+      "reset": "重置筛选"
+    },
+    "card": {
+      "visit": "访问网站",
+      "featured": "精选"
+    },
+    "submit": {
+      "title": "提交工具",
+      "description": "通过提交工具帮助我们扩展收藏",
+      "form": {
+        "name": "工具名称",
+        "url": "网站链接",
+        "description": "描述",
+        "categories": "类别",
+        "tags": "标签",
+        "submit": "提交工具",
+        "success": "工具提交成功！我们的团队将进行审核。",
+        "error": "提交工具时出错。请重试。"
+      }
+    }
+  },
+  "blog": {
+    "read_time": "{minutes} 分钟阅读",
+    "published_on": "发布于",
+    "written_by": "作者",
+    "categories": "类别",
+    "tags": "标签",
+    "share": "分享文章",
+    "related": "相关文章",
+    "comments": {
+      "title": "评论",
+      "leave_comment": "发表评论",
+      "name": "您的姓名",
+      "email": "您的邮箱",
+      "comment": "您的评论",
+      "submit": "提交评论",
+      "reply": "回复",
+      "success": "评论提交成功！我们的团队将进行审核。",
+      "error": "提交评论时出错。请重试。"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "登录您的账户",
+      "email": "邮箱",
+      "password": "密码",
+      "button": "登录",
+      "forgot_password": "忘记密码？",
+      "no_account": "没有账户？",
+      "sign_up": "注册",
+      "success": "登录成功！",
+      "error": "邮箱或密码无效"
+    },
+    "register": {
+      "title": "创建账户",
+      "name": "全名",
+      "email": "邮箱",
+      "password": "密码",
+      "confirm_password": "确认密码",
+      "button": "注册",
+      "has_account": "已有账户？",
+      "login": "登录",
+      "success": "注册成功！",
+      "error": "创建账户时出错"
+    },
+    "forgot_password": {
+      "title": "重置密码",
+      "email": "邮箱",
+      "button": "发送重置链接",
+      "back_to_login": "返回登录",
+      "success": "密码重置链接已发送到您的邮箱！",
+      "error": "发送重置链接时出错"
+    },
+    "reset_password": {
+      "title": "设置新密码",
+      "password": "新密码",
+      "confirm_password": "确认新密码",
+      "button": "重置密码",
+      "success": "密码重置成功！",
+      "error": "重置密码时出错"
+    }
+  },
+  "profile": {
+    "title": "您的个人资料",
+    "personal_info": "个人信息",
+    "name": "全名",
+    "email": "邮箱",
+    "bio": "简介",
+    "website": "网站",
+    "update": "更新资料",
+    "change_password": "修改密码",
+    "current_password": "当前密码",
+    "new_password": "新密码",
+    "confirm_password": "确认新密码",
+    "update_password": "更新密码",
+    "submissions": "您的提交",
+    "no_submissions": "您尚未提交任何工具",
+    "success": "个人资料更新成功！",
+    "error": "更新个人资料时出错"
+  },
+  "admin": {
+    "dashboard": {
+      "title": "管理员控制台",
+      "tools": "工具",
+      "categories": "类别",
+      "tags": "标签",
+      "users": "用户",
+      "posts": "博客文章",
+      "comments": "评论",
+      "settings": "网站设置"
+    },
+    "tools": {
+      "title": "管理工具",
+      "add": "添加工具",
+      "edit": "编辑工具",
+      "delete": "删除工具",
+      "approve": "批准工具",
+      "reject": "拒绝工具",
+      "pending": "等待审核"
+    },
+    "categories": {
+      "title": "管理类别",
+      "add": "添加类别",
+      "edit": "编辑类别",
+      "delete": "删除类别"
+    },
+    "tags": {
+      "title": "管理标签",
+      "add": "添加标签",
+      "edit": "编辑标签",
+      "delete": "删除标签"
+    },
+    "users": {
+      "title": "管理用户",
+      "add": "添加用户",
+      "edit": "编辑用户",
+      "delete": "删除用户",
+      "make_admin": "设为管理员",
+      "remove_admin": "移除管理员权限"
+    },
+    "posts": {
+      "title": "管理博客文章",
+      "add": "添加文章",
+      "edit": "编辑文章",
+      "delete": "删除文章",
+      "publish": "发布",
+      "unpublish": "取消发布",
+      "draft": "草稿"
+    },
+    "comments": {
+      "title": "管理评论",
+      "approve": "批准",
+      "reject": "拒绝",
+      "delete": "删除"
+    },
+    "settings": {
+      "title": "网站设置",
+      "general": "常规设置",
+      "site_name": "网站名称",
+      "site_description": "网站描述",
+      "logo": "徽标",
+      "favicon": "网站图标",
+      "social": "社交媒体",
+      "donations": "打赏方式",
+      "languages": "语言",
+      "save": "保存设置"
+    }
+  },
+  "errors": {
+    "not_found": {
+      "title": "页面未找到",
+      "message": "您查找的页面不存在",
+      "back_home": "返回首页"
+    },
+    "server_error": {
+      "title": "服务器错误",
+      "message": "我们的服务器出现了问题",
+      "try_again": "重试"
+    },
+    "unauthorized": {
+      "title": "未授权",
+      "message": "您没有权限访问此页面",
+      "login": "登录"
+    }
+  }
+}

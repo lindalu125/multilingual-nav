@@ -1,0 +1,252 @@
+{
+  "common": {
+    "navigation": {
+      "home": "Início",
+      "tools": "Ferramentas",
+      "blog": "Blog",
+      "about": "Sobre",
+      "contact": "Contato"
+    },
+    "actions": {
+      "login": "Entrar",
+      "register": "Registrar",
+      "logout": "Sair",
+      "profile": "Perfil",
+      "submit": "Enviar",
+      "subscribe": "Inscrever-se",
+      "search": "Pesquisar",
+      "donate": "Doar"
+    },
+    "theme": {
+      "light": "Modo claro",
+      "dark": "Modo escuro"
+    },
+    "footer": {
+      "rights": "Todos os direitos reservados",
+      "privacy": "Política de Privacidade",
+      "terms": "Termos de Serviço"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Encontre as melhores ferramentas para suas necessidades",
+      "subtitle": "Descubra, compare e use as melhores ferramentas para seus projetos",
+      "cta_primary": "Explorar ferramentas",
+      "cta_secondary": "Enviar uma ferramenta"
+    },
+    "categories": {
+      "title": "Navegar por categoria",
+      "view_all": "Ver tudo"
+    },
+    "featured": {
+      "title": "Ferramentas em destaque",
+      "view_all": "Ver todos os destaques"
+    },
+    "blog": {
+      "title": "Artigos recentes",
+      "read_more": "Ler mais"
+    },
+    "newsletter": {
+      "title": "Inscreva-se em nossa newsletter",
+      "subtitle": "Receba as últimas ferramentas e artigos em seu e-mail",
+      "placeholder": "Seu endereço de e-mail",
+      "button": "Inscrever-se",
+      "success": "Obrigado por se inscrever!",
+      "error": "Algo deu errado. Por favor, tente novamente."
+    }
+  },
+  "tools": {
+    "search": {
+      "placeholder": "Pesquisar ferramentas...",
+      "no_results": "Nenhuma ferramenta encontrada para sua pesquisa"
+    },
+    "filter": {
+      "title": "Filtrar",
+      "categories": "Categorias",
+      "tags": "Tags",
+      "reset": "Redefinir filtros"
+    },
+    "card": {
+      "visit": "Visitar site",
+      "featured": "Destaque"
+    },
+    "submit": {
+      "title": "Enviar uma ferramenta",
+      "description": "Ajude-nos a expandir nossa coleção enviando uma ferramenta",
+      "form": {
+        "name": "Nome da ferramenta",
+        "url": "URL do site",
+        "description": "Descrição",
+        "categories": "Categorias",
+        "tags": "Tags",
+        "submit": "Enviar ferramenta",
+        "success": "Ferramenta enviada com sucesso! Será revisada por nossa equipe.",
+        "error": "Erro ao enviar ferramenta. Por favor, tente novamente."
+      }
+    }
+  },
+  "blog": {
+    "read_time": "{minutes} min de leitura",
+    "published_on": "Publicado em",
+    "written_by": "Escrito por",
+    "categories": "Categorias",
+    "tags": "Tags",
+    "share": "Compartilhar este artigo",
+    "related": "Artigos relacionados",
+    "comments": {
+      "title": "Comentários",
+      "leave_comment": "Deixe um comentário",
+      "name": "Seu nome",
+      "email": "Seu e-mail",
+      "comment": "Seu comentário",
+      "submit": "Enviar comentário",
+      "reply": "Responder",
+      "success": "Comentário enviado com sucesso! Será revisado por nossa equipe.",
+      "error": "Erro ao enviar comentário. Por favor, tente novamente."
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Entrar na sua conta",
+      "email": "E-mail",
+      "password": "Senha",
+      "button": "Entrar",
+      "forgot_password": "Esqueceu a senha?",
+      "no_account": "Não tem uma conta?",
+      "sign_up": "Registre-se",
+      "success": "Login bem-sucedido!",
+      "error": "E-mail ou senha inválidos"
+    },
+    "register": {
+      "title": "Criar uma conta",
+      "name": "Nome completo",
+      "email": "E-mail",
+      "password": "Senha",
+      "confirm_password": "Confirmar senha",
+      "button": "Registrar",
+      "has_account": "Já tem uma conta?",
+      "login": "Entrar",
+      "success": "Registro bem-sucedido!",
+      "error": "Erro ao criar conta"
+    },
+    "forgot_password": {
+      "title": "Redefinir sua senha",
+      "email": "E-mail",
+      "button": "Enviar link de redefinição",
+      "back_to_login": "Voltar para login",
+      "success": "Link de redefinição de senha enviado para seu e-mail!",
+      "error": "Erro ao enviar link de redefinição"
+    },
+    "reset_password": {
+      "title": "Definir nova senha",
+      "password": "Nova senha",
+      "confirm_password": "Confirmar nova senha",
+      "button": "Redefinir senha",
+      "success": "Redefinição de senha bem-sucedida!",
+      "error": "Erro ao redefinir senha"
+    }
+  },
+  "profile": {
+    "title": "Seu perfil",
+    "personal_info": "Informações pessoais",
+    "name": "Nome completo",
+    "email": "E-mail",
+    "bio": "Biografia",
+    "website": "Site",
+    "update": "Atualizar perfil",
+    "change_password": "Alterar senha",
+    "current_password": "Senha atual",
+    "new_password": "Nova senha",
+    "confirm_password": "Confirmar nova senha",
+    "update_password": "Atualizar senha",
+    "submissions": "Seus envios",
+    "no_submissions": "Você ainda não enviou nenhuma ferramenta",
+    "success": "Perfil atualizado com sucesso!",
+    "error": "Erro ao atualizar perfil"
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Painel de administração",
+      "tools": "Ferramentas",
+      "categories": "Categorias",
+      "tags": "Tags",
+      "users": "Usuários",
+      "posts": "Artigos do blog",
+      "comments": "Comentários",
+      "settings": "Configurações do site"
+    },
+    "tools": {
+      "title": "Gerenciar ferramentas",
+      "add": "Adicionar ferramenta",
+      "edit": "Editar ferramenta",
+      "delete": "Excluir ferramenta",
+      "approve": "Aprovar ferramenta",
+      "reject": "Rejeitar ferramenta",
+      "pending": "Pendente de aprovação"
+    },
+    "categories": {
+      "title": "Gerenciar categorias",
+      "add": "Adicionar categoria",
+      "edit": "Editar categoria",
+      "delete": "Excluir categoria"
+    },
+    "tags": {
+      "title": "Gerenciar tags",
+      "add": "Adicionar tag",
+      "edit": "Editar tag",
+      "delete": "Excluir tag"
+    },
+    "users": {
+      "title": "Gerenciar usuários",
+      "add": "Adicionar usuário",
+      "edit": "Editar usuário",
+      "delete": "Excluir usuário",
+      "make_admin": "Tornar administrador",
+      "remove_admin": "Remover administrador"
+    },
+    "posts": {
+      "title": "Gerenciar artigos do blog",
+      "add": "Adicionar artigo",
+      "edit": "Editar artigo",
+      "delete": "Excluir artigo",
+      "publish": "Publicar",
+      "unpublish": "Despublicar",
+      "draft": "Rascunho"
+    },
+    "comments": {
+      "title": "Gerenciar comentários",
+      "approve": "Aprovar",
+      "reject": "Rejeitar",
+      "delete": "Excluir"
+    },
+    "settings": {
+      "title": "Configurações do site",
+      "general": "Configurações gerais",
+      "site_name": "Nome do site",
+      "site_description": "Descrição do site",
+      "logo": "Logo",
+      "favicon": "Favicon",
+      "social": "Redes sociais",
+      "donations": "Métodos de doação",
+      "languages": "Idiomas",
+      "save": "Salvar configurações"
+    }
+  },
+  "errors": {
+    "not_found": {
+      "title": "Página não encontrada",
+      "message": "A página que você está procurando não existe",
+      "back_home": "Voltar para o início"
+    },
+    "server_error": {
+      "title": "Erro do servidor",
+      "message": "Algo deu errado em nosso servidor",
+      "try_again": "Tentar novamente"
+    },
+    "unauthorized": {
+      "title": "Não autorizado",
+      "message": "Você não tem permissão para acessar esta página",
+      "login": "Entrar"
+    }
+  }
+}

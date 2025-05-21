@@ -1,0 +1,252 @@
+{
+  "common": {
+    "navigation": {
+      "home": "Accueil",
+      "tools": "Outils",
+      "blog": "Blog",
+      "about": "À propos",
+      "contact": "Contact"
+    },
+    "actions": {
+      "login": "Connexion",
+      "register": "S'inscrire",
+      "logout": "Déconnexion",
+      "profile": "Profil",
+      "submit": "Soumettre",
+      "subscribe": "S'abonner",
+      "search": "Rechercher",
+      "donate": "Faire un don"
+    },
+    "theme": {
+      "light": "Mode clair",
+      "dark": "Mode sombre"
+    },
+    "footer": {
+      "rights": "Tous droits réservés",
+      "privacy": "Politique de confidentialité",
+      "terms": "Conditions d'utilisation"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Trouvez les meilleurs outils pour vos besoins",
+      "subtitle": "Découvrez, comparez et utilisez les meilleurs outils pour vos projets",
+      "cta_primary": "Explorer les outils",
+      "cta_secondary": "Soumettre un outil"
+    },
+    "categories": {
+      "title": "Parcourir par catégorie",
+      "view_all": "Voir tout"
+    },
+    "featured": {
+      "title": "Outils en vedette",
+      "view_all": "Voir tous les outils en vedette"
+    },
+    "blog": {
+      "title": "Derniers articles",
+      "read_more": "Lire plus"
+    },
+    "newsletter": {
+      "title": "Abonnez-vous à notre newsletter",
+      "subtitle": "Recevez les derniers outils et articles directement dans votre boîte de réception",
+      "placeholder": "Votre adresse e-mail",
+      "button": "S'abonner",
+      "success": "Merci pour votre abonnement !",
+      "error": "Une erreur s'est produite. Veuillez réessayer."
+    }
+  },
+  "tools": {
+    "search": {
+      "placeholder": "Rechercher des outils...",
+      "no_results": "Aucun outil trouvé pour votre recherche"
+    },
+    "filter": {
+      "title": "Filtrer",
+      "categories": "Catégories",
+      "tags": "Tags",
+      "reset": "Réinitialiser les filtres"
+    },
+    "card": {
+      "visit": "Visiter le site",
+      "featured": "En vedette"
+    },
+    "submit": {
+      "title": "Soumettre un outil",
+      "description": "Aidez-nous à enrichir notre collection en soumettant un outil",
+      "form": {
+        "name": "Nom de l'outil",
+        "url": "URL du site web",
+        "description": "Description",
+        "categories": "Catégories",
+        "tags": "Tags",
+        "submit": "Soumettre l'outil",
+        "success": "Outil soumis avec succès ! Il sera examiné par notre équipe.",
+        "error": "Erreur lors de la soumission de l'outil. Veuillez réessayer."
+      }
+    }
+  },
+  "blog": {
+    "read_time": "{minutes} min de lecture",
+    "published_on": "Publié le",
+    "written_by": "Écrit par",
+    "categories": "Catégories",
+    "tags": "Tags",
+    "share": "Partager cet article",
+    "related": "Articles connexes",
+    "comments": {
+      "title": "Commentaires",
+      "leave_comment": "Laisser un commentaire",
+      "name": "Votre nom",
+      "email": "Votre e-mail",
+      "comment": "Votre commentaire",
+      "submit": "Soumettre le commentaire",
+      "reply": "Répondre",
+      "success": "Commentaire soumis avec succès ! Il sera examiné par notre équipe.",
+      "error": "Erreur lors de la soumission du commentaire. Veuillez réessayer."
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Connexion à votre compte",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "button": "Se connecter",
+      "forgot_password": "Mot de passe oublié ?",
+      "no_account": "Vous n'avez pas de compte ?",
+      "sign_up": "S'inscrire",
+      "success": "Connexion réussie !",
+      "error": "E-mail ou mot de passe invalide"
+    },
+    "register": {
+      "title": "Créer un compte",
+      "name": "Nom complet",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "confirm_password": "Confirmer le mot de passe",
+      "button": "S'inscrire",
+      "has_account": "Vous avez déjà un compte ?",
+      "login": "Se connecter",
+      "success": "Inscription réussie !",
+      "error": "Erreur lors de la création du compte"
+    },
+    "forgot_password": {
+      "title": "Réinitialiser votre mot de passe",
+      "email": "E-mail",
+      "button": "Envoyer le lien de réinitialisation",
+      "back_to_login": "Retour à la connexion",
+      "success": "Lien de réinitialisation du mot de passe envoyé à votre e-mail !",
+      "error": "Erreur lors de l'envoi du lien de réinitialisation"
+    },
+    "reset_password": {
+      "title": "Définir un nouveau mot de passe",
+      "password": "Nouveau mot de passe",
+      "confirm_password": "Confirmer le nouveau mot de passe",
+      "button": "Réinitialiser le mot de passe",
+      "success": "Réinitialisation du mot de passe réussie !",
+      "error": "Erreur lors de la réinitialisation du mot de passe"
+    }
+  },
+  "profile": {
+    "title": "Votre profil",
+    "personal_info": "Informations personnelles",
+    "name": "Nom complet",
+    "email": "E-mail",
+    "bio": "Biographie",
+    "website": "Site web",
+    "update": "Mettre à jour le profil",
+    "change_password": "Changer le mot de passe",
+    "current_password": "Mot de passe actuel",
+    "new_password": "Nouveau mot de passe",
+    "confirm_password": "Confirmer le nouveau mot de passe",
+    "update_password": "Mettre à jour le mot de passe",
+    "submissions": "Vos soumissions",
+    "no_submissions": "Vous n'avez pas encore soumis d'outils",
+    "success": "Profil mis à jour avec succès !",
+    "error": "Erreur lors de la mise à jour du profil"
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Tableau de bord d'administration",
+      "tools": "Outils",
+      "categories": "Catégories",
+      "tags": "Tags",
+      "users": "Utilisateurs",
+      "posts": "Articles de blog",
+      "comments": "Commentaires",
+      "settings": "Paramètres du site"
+    },
+    "tools": {
+      "title": "Gérer les outils",
+      "add": "Ajouter un outil",
+      "edit": "Modifier l'outil",
+      "delete": "Supprimer l'outil",
+      "approve": "Approuver l'outil",
+      "reject": "Rejeter l'outil",
+      "pending": "En attente d'approbation"
+    },
+    "categories": {
+      "title": "Gérer les catégories",
+      "add": "Ajouter une catégorie",
+      "edit": "Modifier la catégorie",
+      "delete": "Supprimer la catégorie"
+    },
+    "tags": {
+      "title": "Gérer les tags",
+      "add": "Ajouter un tag",
+      "edit": "Modifier le tag",
+      "delete": "Supprimer le tag"
+    },
+    "users": {
+      "title": "Gérer les utilisateurs",
+      "add": "Ajouter un utilisateur",
+      "edit": "Modifier l'utilisateur",
+      "delete": "Supprimer l'utilisateur",
+      "make_admin": "Promouvoir administrateur",
+      "remove_admin": "Retirer les droits d'administrateur"
+    },
+    "posts": {
+      "title": "Gérer les articles de blog",
+      "add": "Ajouter un article",
+      "edit": "Modifier l'article",
+      "delete": "Supprimer l'article",
+      "publish": "Publier",
+      "unpublish": "Dépublier",
+      "draft": "Brouillon"
+    },
+    "comments": {
+      "title": "Gérer les commentaires",
+      "approve": "Approuver",
+      "reject": "Rejeter",
+      "delete": "Supprimer"
+    },
+    "settings": {
+      "title": "Paramètres du site",
+      "general": "Paramètres généraux",
+      "site_name": "Nom du site",
+      "site_description": "Description du site",
+      "logo": "Logo",
+      "favicon": "Favicon",
+      "social": "Réseaux sociaux",
+      "donations": "Méthodes de don",
+      "languages": "Langues",
+      "save": "Enregistrer les paramètres"
+    }
+  },
+  "errors": {
+    "not_found": {
+      "title": "Page non trouvée",
+      "message": "La page que vous recherchez n'existe pas",
+      "back_home": "Retour à l'accueil"
+    },
+    "server_error": {
+      "title": "Erreur serveur",
+      "message": "Une erreur s'est produite de notre côté",
+      "try_again": "Réessayer"
+    },
+    "unauthorized": {
+      "title": "Non autorisé",
+      "message": "Vous n'avez pas la permission d'accéder à cette page",
+      "login": "Se connecter"
+    }
+  }
+}

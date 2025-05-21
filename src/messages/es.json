@@ -1,0 +1,252 @@
+{
+  "common": {
+    "navigation": {
+      "home": "Inicio",
+      "tools": "Herramientas",
+      "blog": "Blog",
+      "about": "Acerca de",
+      "contact": "Contacto"
+    },
+    "actions": {
+      "login": "Iniciar sesión",
+      "register": "Registrarse",
+      "logout": "Cerrar sesión",
+      "profile": "Perfil",
+      "submit": "Enviar",
+      "subscribe": "Suscribirse",
+      "search": "Buscar",
+      "donate": "Donar"
+    },
+    "theme": {
+      "light": "Modo claro",
+      "dark": "Modo oscuro"
+    },
+    "footer": {
+      "rights": "Todos los derechos reservados",
+      "privacy": "Política de privacidad",
+      "terms": "Términos de servicio"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Encuentra las mejores herramientas para tus necesidades",
+      "subtitle": "Descubre, compara y utiliza las mejores herramientas para tus proyectos",
+      "cta_primary": "Explorar herramientas",
+      "cta_secondary": "Enviar una herramienta"
+    },
+    "categories": {
+      "title": "Explorar por categoría",
+      "view_all": "Ver todo"
+    },
+    "featured": {
+      "title": "Herramientas destacadas",
+      "view_all": "Ver todas las destacadas"
+    },
+    "blog": {
+      "title": "Últimos artículos",
+      "read_more": "Leer más"
+    },
+    "newsletter": {
+      "title": "Suscríbete a nuestro boletín",
+      "subtitle": "Recibe las últimas herramientas y artículos en tu bandeja de entrada",
+      "placeholder": "Tu dirección de correo electrónico",
+      "button": "Suscribirse",
+      "success": "¡Gracias por suscribirte!",
+      "error": "Algo salió mal. Por favor, inténtalo de nuevo."
+    }
+  },
+  "tools": {
+    "search": {
+      "placeholder": "Buscar herramientas...",
+      "no_results": "No se encontraron herramientas para tu búsqueda"
+    },
+    "filter": {
+      "title": "Filtrar",
+      "categories": "Categorías",
+      "tags": "Etiquetas",
+      "reset": "Restablecer filtros"
+    },
+    "card": {
+      "visit": "Visitar sitio web",
+      "featured": "Destacada"
+    },
+    "submit": {
+      "title": "Enviar una herramienta",
+      "description": "Ayúdanos a crecer nuestra colección enviando una herramienta",
+      "form": {
+        "name": "Nombre de la herramienta",
+        "url": "URL del sitio web",
+        "description": "Descripción",
+        "categories": "Categorías",
+        "tags": "Etiquetas",
+        "submit": "Enviar herramienta",
+        "success": "¡Herramienta enviada con éxito! Será revisada por nuestro equipo.",
+        "error": "Error al enviar la herramienta. Por favor, inténtalo de nuevo."
+      }
+    }
+  },
+  "blog": {
+    "read_time": "{minutes} min de lectura",
+    "published_on": "Publicado el",
+    "written_by": "Escrito por",
+    "categories": "Categorías",
+    "tags": "Etiquetas",
+    "share": "Compartir este artículo",
+    "related": "Artículos relacionados",
+    "comments": {
+      "title": "Comentarios",
+      "leave_comment": "Dejar un comentario",
+      "name": "Tu nombre",
+      "email": "Tu correo electrónico",
+      "comment": "Tu comentario",
+      "submit": "Enviar comentario",
+      "reply": "Responder",
+      "success": "¡Comentario enviado con éxito! Será revisado por nuestro equipo.",
+      "error": "Error al enviar el comentario. Por favor, inténtalo de nuevo."
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Iniciar sesión en tu cuenta",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "button": "Iniciar sesión",
+      "forgot_password": "¿Olvidaste tu contraseña?",
+      "no_account": "¿No tienes una cuenta?",
+      "sign_up": "Regístrate",
+      "success": "¡Inicio de sesión exitoso!",
+      "error": "Correo electrónico o contraseña inválidos"
+    },
+    "register": {
+      "title": "Crear una cuenta",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "confirm_password": "Confirmar contraseña",
+      "button": "Registrarse",
+      "has_account": "¿Ya tienes una cuenta?",
+      "login": "Iniciar sesión",
+      "success": "¡Registro exitoso!",
+      "error": "Error al crear la cuenta"
+    },
+    "forgot_password": {
+      "title": "Restablecer tu contraseña",
+      "email": "Correo electrónico",
+      "button": "Enviar enlace de restablecimiento",
+      "back_to_login": "Volver a iniciar sesión",
+      "success": "¡Enlace de restablecimiento de contraseña enviado a tu correo electrónico!",
+      "error": "Error al enviar el enlace de restablecimiento"
+    },
+    "reset_password": {
+      "title": "Establecer nueva contraseña",
+      "password": "Nueva contraseña",
+      "confirm_password": "Confirmar nueva contraseña",
+      "button": "Restablecer contraseña",
+      "success": "¡Restablecimiento de contraseña exitoso!",
+      "error": "Error al restablecer la contraseña"
+    }
+  },
+  "profile": {
+    "title": "Tu perfil",
+    "personal_info": "Información personal",
+    "name": "Nombre completo",
+    "email": "Correo electrónico",
+    "bio": "Biografía",
+    "website": "Sitio web",
+    "update": "Actualizar perfil",
+    "change_password": "Cambiar contraseña",
+    "current_password": "Contraseña actual",
+    "new_password": "Nueva contraseña",
+    "confirm_password": "Confirmar nueva contraseña",
+    "update_password": "Actualizar contraseña",
+    "submissions": "Tus envíos",
+    "no_submissions": "Aún no has enviado ninguna herramienta",
+    "success": "¡Perfil actualizado con éxito!",
+    "error": "Error al actualizar el perfil"
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Panel de administración",
+      "tools": "Herramientas",
+      "categories": "Categorías",
+      "tags": "Etiquetas",
+      "users": "Usuarios",
+      "posts": "Artículos del blog",
+      "comments": "Comentarios",
+      "settings": "Configuración del sitio"
+    },
+    "tools": {
+      "title": "Gestionar herramientas",
+      "add": "Añadir herramienta",
+      "edit": "Editar herramienta",
+      "delete": "Eliminar herramienta",
+      "approve": "Aprobar herramienta",
+      "reject": "Rechazar herramienta",
+      "pending": "Pendiente de aprobación"
+    },
+    "categories": {
+      "title": "Gestionar categorías",
+      "add": "Añadir categoría",
+      "edit": "Editar categoría",
+      "delete": "Eliminar categoría"
+    },
+    "tags": {
+      "title": "Gestionar etiquetas",
+      "add": "Añadir etiqueta",
+      "edit": "Editar etiqueta",
+      "delete": "Eliminar etiqueta"
+    },
+    "users": {
+      "title": "Gestionar usuarios",
+      "add": "Añadir usuario",
+      "edit": "Editar usuario",
+      "delete": "Eliminar usuario",
+      "make_admin": "Hacer administrador",
+      "remove_admin": "Quitar administrador"
+    },
+    "posts": {
+      "title": "Gestionar artículos del blog",
+      "add": "Añadir artículo",
+      "edit": "Editar artículo",
+      "delete": "Eliminar artículo",
+      "publish": "Publicar",
+      "unpublish": "Despublicar",
+      "draft": "Borrador"
+    },
+    "comments": {
+      "title": "Gestionar comentarios",
+      "approve": "Aprobar",
+      "reject": "Rechazar",
+      "delete": "Eliminar"
+    },
+    "settings": {
+      "title": "Configuración del sitio",
+      "general": "Configuración general",
+      "site_name": "Nombre del sitio",
+      "site_description": "Descripción del sitio",
+      "logo": "Logo",
+      "favicon": "Favicon",
+      "social": "Redes sociales",
+      "donations": "Métodos de donación",
+      "languages": "Idiomas",
+      "save": "Guardar configuración"
+    }
+  },
+  "errors": {
+    "not_found": {
+      "title": "Página no encontrada",
+      "message": "La página que estás buscando no existe",
+      "back_home": "Volver al inicio"
+    },
+    "server_error": {
+      "title": "Error del servidor",
+      "message": "Algo salió mal en nuestro servidor",
+      "try_again": "Intentar de nuevo"
+    },
+    "unauthorized": {
+      "title": "No autorizado",
+      "message": "No tienes permiso para acceder a esta página",
+      "login": "Iniciar sesión"
+    }
+  }
+}

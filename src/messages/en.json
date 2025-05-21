@@ -1,0 +1,252 @@
+{
+  "common": {
+    "navigation": {
+      "home": "Home",
+      "tools": "Tools",
+      "blog": "Blog",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "actions": {
+      "login": "Login",
+      "register": "Register",
+      "logout": "Logout",
+      "profile": "Profile",
+      "submit": "Submit",
+      "subscribe": "Subscribe",
+      "search": "Search",
+      "donate": "Donate"
+    },
+    "theme": {
+      "light": "Light Mode",
+      "dark": "Dark Mode"
+    },
+    "footer": {
+      "rights": "All rights reserved",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Find the Best Tools for Your Needs",
+      "subtitle": "Discover, compare and use the best tools for your projects",
+      "cta_primary": "Explore Tools",
+      "cta_secondary": "Submit a Tool"
+    },
+    "categories": {
+      "title": "Browse by Category",
+      "view_all": "View All"
+    },
+    "featured": {
+      "title": "Featured Tools",
+      "view_all": "View All Featured"
+    },
+    "blog": {
+      "title": "Latest Articles",
+      "read_more": "Read More"
+    },
+    "newsletter": {
+      "title": "Subscribe to Our Newsletter",
+      "subtitle": "Get the latest tools and articles delivered to your inbox",
+      "placeholder": "Your email address",
+      "button": "Subscribe",
+      "success": "Thank you for subscribing!",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+  "tools": {
+    "search": {
+      "placeholder": "Search for tools...",
+      "no_results": "No tools found for your search"
+    },
+    "filter": {
+      "title": "Filter",
+      "categories": "Categories",
+      "tags": "Tags",
+      "reset": "Reset Filters"
+    },
+    "card": {
+      "visit": "Visit Website",
+      "featured": "Featured"
+    },
+    "submit": {
+      "title": "Submit a Tool",
+      "description": "Help us grow our collection by submitting a tool",
+      "form": {
+        "name": "Tool Name",
+        "url": "Website URL",
+        "description": "Description",
+        "categories": "Categories",
+        "tags": "Tags",
+        "submit": "Submit Tool",
+        "success": "Tool submitted successfully! It will be reviewed by our team.",
+        "error": "Error submitting tool. Please try again."
+      }
+    }
+  },
+  "blog": {
+    "read_time": "{minutes} min read",
+    "published_on": "Published on",
+    "written_by": "Written by",
+    "categories": "Categories",
+    "tags": "Tags",
+    "share": "Share this article",
+    "related": "Related Articles",
+    "comments": {
+      "title": "Comments",
+      "leave_comment": "Leave a comment",
+      "name": "Your Name",
+      "email": "Your Email",
+      "comment": "Your Comment",
+      "submit": "Submit Comment",
+      "reply": "Reply",
+      "success": "Comment submitted successfully! It will be reviewed by our team.",
+      "error": "Error submitting comment. Please try again."
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Login to Your Account",
+      "email": "Email",
+      "password": "Password",
+      "button": "Login",
+      "forgot_password": "Forgot Password?",
+      "no_account": "Don't have an account?",
+      "sign_up": "Sign up",
+      "success": "Login successful!",
+      "error": "Invalid email or password"
+    },
+    "register": {
+      "title": "Create an Account",
+      "name": "Full Name",
+      "email": "Email",
+      "password": "Password",
+      "confirm_password": "Confirm Password",
+      "button": "Register",
+      "has_account": "Already have an account?",
+      "login": "Login",
+      "success": "Registration successful!",
+      "error": "Error creating account"
+    },
+    "forgot_password": {
+      "title": "Reset Your Password",
+      "email": "Email",
+      "button": "Send Reset Link",
+      "back_to_login": "Back to Login",
+      "success": "Password reset link sent to your email!",
+      "error": "Error sending reset link"
+    },
+    "reset_password": {
+      "title": "Set New Password",
+      "password": "New Password",
+      "confirm_password": "Confirm New Password",
+      "button": "Reset Password",
+      "success": "Password reset successful!",
+      "error": "Error resetting password"
+    }
+  },
+  "profile": {
+    "title": "Your Profile",
+    "personal_info": "Personal Information",
+    "name": "Full Name",
+    "email": "Email",
+    "bio": "Bio",
+    "website": "Website",
+    "update": "Update Profile",
+    "change_password": "Change Password",
+    "current_password": "Current Password",
+    "new_password": "New Password",
+    "confirm_password": "Confirm New Password",
+    "update_password": "Update Password",
+    "submissions": "Your Submissions",
+    "no_submissions": "You haven't submitted any tools yet",
+    "success": "Profile updated successfully!",
+    "error": "Error updating profile"
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Admin Dashboard",
+      "tools": "Tools",
+      "categories": "Categories",
+      "tags": "Tags",
+      "users": "Users",
+      "posts": "Blog Posts",
+      "comments": "Comments",
+      "settings": "Site Settings"
+    },
+    "tools": {
+      "title": "Manage Tools",
+      "add": "Add Tool",
+      "edit": "Edit Tool",
+      "delete": "Delete Tool",
+      "approve": "Approve Tool",
+      "reject": "Reject Tool",
+      "pending": "Pending Approval"
+    },
+    "categories": {
+      "title": "Manage Categories",
+      "add": "Add Category",
+      "edit": "Edit Category",
+      "delete": "Delete Category"
+    },
+    "tags": {
+      "title": "Manage Tags",
+      "add": "Add Tag",
+      "edit": "Edit Tag",
+      "delete": "Delete Tag"
+    },
+    "users": {
+      "title": "Manage Users",
+      "add": "Add User",
+      "edit": "Edit User",
+      "delete": "Delete User",
+      "make_admin": "Make Admin",
+      "remove_admin": "Remove Admin"
+    },
+    "posts": {
+      "title": "Manage Blog Posts",
+      "add": "Add Post",
+      "edit": "Edit Post",
+      "delete": "Delete Post",
+      "publish": "Publish",
+      "unpublish": "Unpublish",
+      "draft": "Draft"
+    },
+    "comments": {
+      "title": "Manage Comments",
+      "approve": "Approve",
+      "reject": "Reject",
+      "delete": "Delete"
+    },
+    "settings": {
+      "title": "Site Settings",
+      "general": "General Settings",
+      "site_name": "Site Name",
+      "site_description": "Site Description",
+      "logo": "Logo",
+      "favicon": "Favicon",
+      "social": "Social Media",
+      "donations": "Donation Methods",
+      "languages": "Languages",
+      "save": "Save Settings"
+    }
+  },
+  "errors": {
+    "not_found": {
+      "title": "Page Not Found",
+      "message": "The page you are looking for does not exist",
+      "back_home": "Back to Home"
+    },
+    "server_error": {
+      "title": "Server Error",
+      "message": "Something went wrong on our end",
+      "try_again": "Try Again"
+    },
+    "unauthorized": {
+      "title": "Unauthorized",
+      "message": "You don't have permission to access this page",
+      "login": "Login"
+    }
+  }
+}

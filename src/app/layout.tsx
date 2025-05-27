@@ -1,27 +1,13 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-<<<<<<< HEAD
+
 import './globals.css'
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 })
-=======
 
-const inter = Inter({ subsets: ['latin'] })
-
-
-import './globals.css'
-
-
-const interSans = Inter({
-  variable: '--font-inter-sans',
-  subsets: ['latin']
-})
-
-
->>>>>>> 506b6f7997a7974ba290a0618a78dba2ed06ec28
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -35,11 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-<<<<<<< HEAD
       <body className={`${inter.variable} antialiased`}>{children}</body>
-=======
-      <body className={`${interSans.variable} antialiased`}>{children}</body>
->>>>>>> 506b6f7997a7974ba290a0618a78dba2ed06ec28
     </html>
   )
 }

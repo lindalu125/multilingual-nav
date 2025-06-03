@@ -1,7 +1,9 @@
-import { settings } from './settings';
-import { tools } from './tools';
-import { blog } from './blog';
-import { users } from './users';
+// Assuming the exported objects from settings, tools, blog, users are compatible
+// after changing from sqliteTable to pgTable (which they should be)
+import * as settings from './settings';
+import * as tools from './tools';
+import * as blog from './blog';
+import * as users from './users';
 
 export * from './settings';
 export * from './tools';

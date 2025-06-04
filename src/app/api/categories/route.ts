@@ -1,6 +1,7 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
-import { categories } from '@/db/schema';
+import { categories } from '../../../db/schema';
+
 import { eq, like } from 'drizzle-orm';
 
 export async function GET(request: NextRequest) {

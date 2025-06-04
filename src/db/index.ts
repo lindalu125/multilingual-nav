@@ -1,6 +1,6 @@
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
-import * as schema from './src/db/schema'; // 确保导入了您的 schema
+import * as schema from './schema'; // <--- 正确的路径，表示同目录下的 schema 文件夹
 import * as dotenv from 'dotenv';
 
 // 加载 .env.local 文件中的环境变量

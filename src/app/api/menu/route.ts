@@ -1,26 +1,4 @@
-import { NextRequest } from 'next/server';
-import { db } from '@/db';
-import { navMenu } from '@/db/schema';
-import { eq, sql, asc } from 'drizzle-orm';
-
-export async function GET(request: NextRequest) {
-  try {
-    const { searchParams } = new URL(request.url);
-    const locale = searchParams.get('locale') || 'en';
-    
-    const menuItems = await db.select()
-      .from(navMenu)
-      .where(eq(navMenu.locale, locale))
-      .orderBy(asc(navMenu.order));
-
-    return Response.json({ menuItems });
-  } catch (error) {
-    console.error('Error fetching menu items:', error);
-    return Response.json({ error: 'Failed to fetch menu items' }, { status: 500 });
-  }
-}
-
-// 替换整个 POST 函数
+// 请用这个完整的、正确的 POST 函数进行替换
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
@@ -46,7 +24,7 @@ export async function POST(request: NextRequest) {
       order: data.order !== undefined ? data.order : maxOrder + 1,
       locale: data.locale,
       isActive: data.isActive !== undefined ? data.isActive : true,
-    }).returning(); // <--- 加上这一行 .returning()
+    }).returning(); // <--- 确保这一行 .returning() 存在
     
     return Response.json({ menuItem: newMenuItem, success: true });
   } catch (error) {

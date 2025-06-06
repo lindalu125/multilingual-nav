@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
 import { categories } from '@/db/schema';
-import { eq } from 'drizzle-orm';
+import { eq, and, not } from "drizzle-orm"
 
 export async function GET(
   request: NextRequest,
@@ -49,11 +49,17 @@ export async function PUT(
     
     // Check if slug already exists (if changed)
     if (data.slug) {
-      const existingCategory = await db.select()
-        .from(categories)
-        .where(eq(categories.slug, data.slug))
-        .where(eq(categories.id, id).not())
-        .limit(1);
+      // 修改后的正确代码
+  const existingCategory = await db
+    .select({ id: categories.id })
+    .from(categories)
+    .where(
+        and(
+            eq(categories.slug, data.slug),
+            not(eq(categories.id, id))
+        )
+    )
+    .limit(1);
       
       if (existingCategory.length > 0) {
         return Response.json({ error: 'Category with this slug already exists' }, { status: 400 });

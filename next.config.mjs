@@ -1,20 +1,13 @@
+// next.config.mjs
+
+import withNextIntl from 'next-intl/plugin';
+
+// 把 './src/i18n.ts' 这个路径加进去
+const withNextIntlConfig = withNextIntl('./src/i18n.ts');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  // 如果您使用了国际化功能，可能需要添加以下配置
-  i18n: {
-    locales: ['en', 'zh', 'es', 'fr', 'pt', 'ar', 'ru'],
-    defaultLocale: 'en',
-  },
-  // 如果您使用了图片优化，可能需要添加以下配置
-  images: {
-    domains: ['your-cloudflare-r2-domain.com'],
-  },
+  // 可以在这里加一些其他的 Next.js 配置
 };
 
-export default nextConfig;
+export default withNextIntlConfig(nextConfig);

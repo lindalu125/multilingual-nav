@@ -1,7 +1,8 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
 import { siteSettings } from '@/db/schema';
-import { eq, like } from 'drizzle-orm';
+// 1. 在这里加入 "and"
+import { eq, and } from 'drizzle-orm';
 
 export async function GET(request: NextRequest) {
   try {
@@ -25,6 +26,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
+// 2. 替换整个 POST 函数
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
@@ -34,21 +36,29 @@ export async function POST(request: NextRequest) {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
     
-    // Check if setting already exists
+    // Check if setting already exists - [修改点一]
     const existingSetting = await db.select()
       .from(siteSettings)
-      .where(eq(siteSettings.key, data.key))
-      .where(eq(siteSettings.locale, data.locale))
+      .where(
+        and(
+          eq(siteSettings.key, data.key),
+          eq(siteSettings.locale, data.locale)
+        )
+      )
       .limit(1);
     
     if (existingSetting.length > 0) {
-      // Update existing setting
+      // Update existing setting - [修改点二]
       const [updatedSetting] = await db.update(siteSettings)
         .set({
           value: data.value,
         })
-        .where(eq(siteSettings.key, data.key))
-        .where(eq(siteSettings.locale, data.locale))
+        .where(
+          and(
+            eq(siteSettings.key, data.key),
+            eq(siteSettings.locale, data.locale)
+          )
+        )
         .returning();
       
       return Response.json({ setting: updatedSetting, success: true });

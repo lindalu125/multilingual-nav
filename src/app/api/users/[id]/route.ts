@@ -1,7 +1,8 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
 import { users } from '@/db/schema';
-import { eq } from 'drizzle-orm';
+// 1. 在这里加入 "and" 和 "not"
+import { eq, and, not } from 'drizzle-orm';
 import bcrypt from 'bcryptjs';
 
 export async function GET(
@@ -58,11 +59,15 @@ export async function PUT(
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
     
-    // Check if email already exists (if changed)
+    // Check if email already exists (if changed) - [修改点]
     const existingUser = await db.select()
       .from(users)
-      .where(eq(users.email, data.email))
-      .where(eq(users.id, id).not())
+      .where(
+        and(
+          eq(users.email, data.email),
+          not(eq(users.id, id))
+        )
+      )
       .limit(1);
     
     if (existingUser.length > 0) {

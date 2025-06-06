@@ -1,8 +1,10 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
-import { userTools, userToolCategories } from '@/db/schema';
-import { eq, like } from 'drizzle-orm';
+import { userTools, userToolCategories, users } from '@/db/schema';
+// 1. 确保导入了所有需要的函数
+import { eq, like, and, sql, desc } from 'drizzle-orm';
 
+// 2. 替换整个 GET 函数
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -13,33 +15,39 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '20');
     const offset = (page - 1) * limit;
 
-    let query = db.select().from(userTools).where(eq(userTools.locale, locale));
+    // 创建一个条件数组
+    const conditions = [eq(userTools.locale, locale)];
 
+    // 动态添加条件
     if (status !== 'all') {
-      query = query.where(eq(userTools.status, status));
+      conditions.push(eq(userTools.status, status));
     }
 
     if (search) {
-      query = query.where(
-        like(userTools.name, `%${search}%`)
-      );
+      conditions.push(like(userTools.name, `%${search}%`));
     }
 
-    // Count total before applying pagination
-    const countQuery = db.select({ count: db.fn.count() }).from(query.as('subquery'));
-    const [{ count }] = await countQuery;
+    // 使用组合后的条件查询总数
+    const totalResult = await db.select({ count: sql<number>`count(*)` })
+      .from(userTools)
+      .where(and(...conditions));
+    const total = totalResult[0].count;
     
-    // Apply pagination
-    const submissionsData = await query.limit(limit).offset(offset);
+    // 使用组合后的条件查询分页数据
+    const submissionsData = await db.select()
+      .from(userTools)
+      .where(and(...conditions))
+      .orderBy(desc(userTools.createdAt))
+      .limit(limit)
+      .offset(offset);
 
-    // Get user and reviewer details
+    // (这部分获取关联关系的代码保持不变)
     const submissionsWithRelations = await Promise.all(
       submissionsData.map(async (submission) => {
-        // Get user details
         let user = null;
         if (submission.userId) {
-          const userData = await db.query.users.findFirst({
-            where: eq(db.schema.users.id, submission.userId),
+          user = await db.query.users.findFirst({
+            where: eq(users.id, submission.userId),
             columns: {
               id: true,
               name: true,
@@ -47,14 +55,12 @@ export async function GET(request: NextRequest) {
               avatar: true
             }
           });
-          user = userData;
         }
 
-        // Get reviewer details
         let reviewer = null;
         if (submission.reviewedBy) {
-          const reviewerData = await db.query.users.findFirst({
-            where: eq(db.schema.users.id, submission.reviewedBy),
+          reviewer = await db.query.users.findFirst({
+            where: eq(users.id, submission.reviewedBy),
             columns: {
               id: true,
               name: true,
@@ -62,11 +68,9 @@ export async function GET(request: NextRequest) {
               avatar: true
             }
           });
-          reviewer = reviewerData;
         }
 
-        // Get categories
-        const categories = await db.query.userToolCategories.findMany({
+        const categoriesData = await db.query.userToolCategories.findMany({
           where: eq(userToolCategories.userToolId, submission.id),
           with: {
             category: true
@@ -77,17 +81,17 @@ export async function GET(request: NextRequest) {
           ...submission,
           user,
           reviewer,
-          categories: categories.map(c => c.category)
+          categories: categoriesData.map(c => c.category)
         };
       })
     );
 
     return Response.json({ 
       submissions: submissionsWithRelations, 
-      total: Number(count),
+      total: total,
       page,
       limit,
-      totalPages: Math.ceil(Number(count) / limit)
+      totalPages: Math.ceil(total / limit)
     });
   } catch (error) {
     console.error('Error fetching submissions:', error);

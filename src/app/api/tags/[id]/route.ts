@@ -1,7 +1,8 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
 import { tags } from '@/db/schema';
-import { eq } from 'drizzle-orm';
+// 1. 在这里加入 "and" 和 "not"
+import { eq, and, not } from 'drizzle-orm';
 
 export async function GET(
   request: NextRequest,
@@ -31,7 +32,7 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { id:string } }
 ) {
   try {
     const id = parseInt(params.id);
@@ -49,10 +50,15 @@ export async function PUT(
     
     // Check if slug already exists (if changed)
     if (data.slug) {
+      // 2. 修改这里的查询
       const existingTag = await db.select()
         .from(tags)
-        .where(eq(tags.slug, data.slug))
-        .where(eq(tags.id, id).not())
+        .where(
+          and(
+            eq(tags.slug, data.slug),
+            not(eq(tags.id, id))
+          )
+        )
         .limit(1);
       
       if (existingTag.length > 0) {

@@ -1,8 +1,10 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
 import { tools, categories, tags, toolCategories, toolTags } from '@/db/schema';
-import { eq, like, and } from 'drizzle-orm';
+// 1. 确保导入了所有需要的函数
+import { eq, like, and, sql, inArray } from 'drizzle-orm';
 
+// 2. 替换整个 GET 函数
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -14,12 +16,12 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '10');
     const offset = (page - 1) * limit;
 
-    let query = db.select().from(tools).where(eq(tools.locale, locale));
+    // 创建一个条件数组
+    const conditions = [eq(tools.locale, locale)];
 
+    // 动态添加条件
     if (search) {
-      query = query.where(
-        like(tools.name, `%${search}%`)
-      );
+      conditions.push(like(tools.name, `%${search}%`));
     }
 
     if (categoryId) {
@@ -31,11 +33,9 @@ export async function GET(request: NextRequest) {
       const toolIds = toolsInCategory.map(t => t.toolId);
       
       if (toolIds.length > 0) {
-        query = query.where(
-          tools.id.in(toolIds)
-        );
+        conditions.push(inArray(tools.id, toolIds));
       } else {
-        return Response.json({ tools: [], total: 0 });
+        return Response.json({ tools: [], total: 0, page, limit, totalPages: 0 });
       }
     }
 
@@ -48,22 +48,26 @@ export async function GET(request: NextRequest) {
       const toolIds = toolsWithTag.map(t => t.toolId);
       
       if (toolIds.length > 0) {
-        query = query.where(
-          tools.id.in(toolIds)
-        );
+        conditions.push(inArray(tools.id, toolIds));
       } else {
-        return Response.json({ tools: [], total: 0 });
+        return Response.json({ tools: [], total: 0, page, limit, totalPages: 0 });
       }
     }
 
-    // Count total before applying pagination
-    const countQuery = db.select({ count: db.fn.count() }).from(query.as('subquery'));
-    const [{ count }] = await countQuery;
-    
-    // Apply pagination
-    const toolsData = await query.limit(limit).offset(offset);
+    // 使用组合后的条件查询总数
+    const totalResult = await db.select({ count: sql<number>`count(*)` })
+      .from(tools)
+      .where(and(...conditions));
+    const total = totalResult[0].count;
 
-    // Get categories and tags for each tool
+    // 使用组合后的条件查询分页数据
+    const toolsData = await db.select()
+      .from(tools)
+      .where(and(...conditions))
+      .limit(limit)
+      .offset(offset);
+
+    // (这部分获取关联关系的代码保持不变)
     const toolsWithRelations = await Promise.all(
       toolsData.map(async (tool) => {
         const toolCats = await db
@@ -88,10 +92,10 @@ export async function GET(request: NextRequest) {
 
     return Response.json({ 
       tools: toolsWithRelations, 
-      total: Number(count),
+      total: total,
       page,
       limit,
-      totalPages: Math.ceil(Number(count) / limit)
+      totalPages: Math.ceil(total / limit)
     });
   } catch (error) {
     console.error('Error fetching tools:', error);
@@ -99,6 +103,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
+// POST 函数保持不变，这里省略...
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();

@@ -1,7 +1,8 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
 import { posts, categories, tags, postCategories, postTags } from '@/db/schema';
-import { eq, like, and } from 'drizzle-orm';
+// 1. 确保导入了所有需要的函数
+import { eq, like, and, desc, inArray, sql } from 'drizzle-orm';
 
 export async function GET(request: NextRequest) {
   try {
@@ -15,17 +16,16 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '10');
     const offset = (page - 1) * limit;
 
-    let query = db.select().from(posts)
-      .where(eq(posts.locale, locale));
-    
+    // 2. 创建一个条件数组，并加入第一个必要条件
+    const conditions = [eq(posts.locale, locale)];
+
+    // 3. 根据参数，向数组里动态添加条件
     if (status !== 'all') {
-      query = query.where(eq(posts.status, status));
+      conditions.push(eq(posts.status, status));
     }
 
     if (search) {
-      query = query.where(
-        like(posts.title, `%${search}%`)
-      );
+      conditions.push(like(posts.title, `%${search}%`));
     }
 
     if (categoryId) {
@@ -37,11 +37,10 @@ export async function GET(request: NextRequest) {
       const postIds = postsInCategory.map(p => p.postId);
       
       if (postIds.length > 0) {
-        query = query.where(
-          posts.id.in(postIds)
-        );
+        conditions.push(inArray(posts.id, postIds));
       } else {
-        return Response.json({ posts: [], total: 0 });
+        // 如果这个分类下没有文章，直接返回空结果
+        return Response.json({ posts: [], total: 0, page, limit, totalPages: 0 });
       }
     }
 
@@ -54,25 +53,29 @@ export async function GET(request: NextRequest) {
       const postIds = postsWithTag.map(p => p.postId);
       
       if (postIds.length > 0) {
-        query = query.where(
-          posts.id.in(postIds)
-        );
+        conditions.push(inArray(posts.id, postIds));
       } else {
-        return Response.json({ posts: [], total: 0 });
+        // 如果这个标签下没有文章，直接返回空结果
+        return Response.json({ posts: [], total: 0, page, limit, totalPages: 0 });
       }
     }
-
-    // Count total before applying pagination
-    const countQuery = db.select({ count: db.fn.count() }).from(query.as('subquery'));
-    const [{ count }] = await countQuery;
     
-    // Apply pagination and ordering
-    const postsData = await query
-      .orderBy(posts.publishedAt, 'desc')
-      .limit(limit)
-      .offset(offset);
+    // 4. 使用 and() 函数组合所有条件，构建最终查询
+    // 查询总数
+    const totalResult = await db.select({ count: sql<number>`count(*)` })
+        .from(posts)
+        .where(and(...conditions));
+    const total = totalResult[0].count;
+    
+    // 查询分页后的数据
+    const postsData = await db.select()
+        .from(posts)
+        .where(and(...conditions))
+        .orderBy(desc(posts.publishedAt))
+        .limit(limit)
+        .offset(offset);
 
-    // Get categories and tags for each post
+    // (这部分获取关联关系的代码保持不变)
     const postsWithRelations = await Promise.all(
       postsData.map(async (post) => {
         const postCats = await db
@@ -97,10 +100,10 @@ export async function GET(request: NextRequest) {
 
     return Response.json({ 
       posts: postsWithRelations, 
-      total: Number(count),
+      total: total,
       page,
       limit,
-      totalPages: Math.ceil(Number(count) / limit)
+      totalPages: Math.ceil(total / limit)
     });
   } catch (error) {
     console.error('Error fetching posts:', error);
@@ -108,6 +111,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
+// POST 函数保持不变，这里省略...
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
@@ -133,7 +137,7 @@ export async function POST(request: NextRequest) {
     }
     
     // Set published date if status is published
-    let publishedAt = null;
+    let publishedAt: number | null = null;
     if (data.status === 'published') {
       publishedAt = Math.floor(Date.now() / 1000);
     }

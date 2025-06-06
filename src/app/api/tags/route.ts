@@ -1,8 +1,10 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
 import { tags } from '@/db/schema';
-import { eq, like } from 'drizzle-orm';
+// 1. 确保导入了所有需要的函数
+import { eq, like, and, sql } from 'drizzle-orm';
 
+// 2. 替换整个 GET 函数
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -12,27 +14,33 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '20');
     const offset = (page - 1) * limit;
 
-    let query = db.select().from(tags).where(eq(tags.locale, locale));
+    // 创建一个条件数组
+    const conditions = [eq(tags.locale, locale)];
 
+    // 动态添加条件
     if (search) {
-      query = query.where(
-        like(tags.name, `%${search}%`)
-      );
+      conditions.push(like(tags.name, `%${search}%`));
     }
 
-    // Count total before applying pagination
-    const countQuery = db.select({ count: db.fn.count() }).from(query.as('subquery'));
-    const [{ count }] = await countQuery;
-    
-    // Apply pagination
-    const tagsData = await query.limit(limit).offset(offset);
+    // 使用组合后的条件查询总数
+    const totalResult = await db.select({ count: sql<number>`count(*)` })
+      .from(tags)
+      .where(and(...conditions));
+    const total = totalResult[0].count;
+
+    // 使用组合后的条件查询分页数据
+    const tagsData = await db.select()
+      .from(tags)
+      .where(and(...conditions))
+      .limit(limit)
+      .offset(offset);
 
     return Response.json({ 
       tags: tagsData, 
-      total: Number(count),
+      total: total,
       page,
       limit,
-      totalPages: Math.ceil(Number(count) / limit)
+      totalPages: Math.ceil(total / limit)
     });
   } catch (error) {
     console.error('Error fetching tags:', error);

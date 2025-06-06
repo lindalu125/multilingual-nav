@@ -1,7 +1,8 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
 import { posts, postCategories, postTags } from '@/db/schema';
-import { eq } from 'drizzle-orm';
+// 1. 在这里加入 "and" 和 "not"
+import { eq, and, not } from 'drizzle-orm';
 
 export async function GET(
   request: NextRequest,
@@ -61,10 +62,15 @@ export async function PUT(
     
     // Check if slug already exists (if changed)
     if (data.slug) {
+      // 2. 修改这里的查询
       const existingPost = await db.select()
         .from(posts)
-        .where(eq(posts.slug, data.slug))
-        .where(eq(posts.id, id).not())
+        .where(
+          and(
+            eq(posts.slug, data.slug),
+            not(eq(posts.id, id))
+          )
+        )
         .limit(1);
       
       if (existingPost.length > 0) {
@@ -174,6 +180,4 @@ export async function DELETE(
     return Response.json({ success: true });
   } catch (error) {
     console.error('Error deleting post:', error);
-    return Response.json({ error: 'Failed to delete post' }, { status: 500 });
-  }
-}
+    return Response.json({ error: '

@@ -1,25 +1,29 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
 import { socialMedia } from '@/db/schema';
-import { eq, like } from 'drizzle-orm';
+// 1. 确保导入了所有需要的函数
+import { eq, like, sql, asc } from 'drizzle-orm';
 
+// 2. 替换整个 GET 函数
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const search = searchParams.get('search');
     
-    let query = db.select().from(socialMedia);
+    let socialLinks;
 
     if (search) {
-      query = query.where(
-        like(socialMedia.name, `%${search}%`)
-      );
+      // 如果有搜索词，构建带 where 的查询
+      socialLinks = await db.select()
+        .from(socialMedia)
+        .where(like(socialMedia.name, `%${search}%`))
+        .orderBy(asc(socialMedia.order));
+    } else {
+      // 如果没有搜索词，构建不带 where 的查询
+      socialLinks = await db.select()
+        .from(socialMedia)
+        .orderBy(asc(socialMedia.order));
     }
-    
-    // Order by the order field
-    query = query.orderBy(socialMedia.order);
-    
-    const socialLinks = await query;
 
     return Response.json({ socialLinks });
   } catch (error) {
@@ -39,7 +43,7 @@ export async function POST(request: NextRequest) {
     
     // Get max order to append at the end
     const maxOrderResult = await db
-      .select({ maxOrder: db.fn.max(socialMedia.order) })
+      .select({ maxOrder: sql<number>`max(${socialMedia.order})` })
       .from(socialMedia);
     
     const maxOrder = maxOrderResult[0].maxOrder || 0;

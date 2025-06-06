@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
 import { languages } from '@/db/schema';
-import { eq } from 'drizzle-orm';
+import { eq, and, not } from "drizzle-orm"; 
 
 export async function GET(
   request: NextRequest,
@@ -49,14 +49,18 @@ export async function PUT(
       return Response.json({ error: 'Language not found' }, { status: 404 });
     }
     
-    // If setting as default, unset other defaults
+   
     if (data.isDefault) {
+    // Set other languages to not be default
       await db.update(languages)
         .set({ isDefault: false })
-        .where(eq(languages.isDefault, true))
-        .where(eq(languages.code, code).not());
-    }
-    
+        .where(
+            and(
+                eq(languages.isDefault, true),
+                not(eq(languages.code, code))
+            )
+        );
+}
     // Update language
     const [updatedLanguage] = await db.update(languages)
       .set({

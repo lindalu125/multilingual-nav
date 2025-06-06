@@ -1,7 +1,5 @@
-// src/i18n.ts
-
 import {getRequestConfig} from 'next-intl/server';
- 
+
 export default getRequestConfig(async ({locale}) => {
   // 提供翻译消息
   return {

@@ -4,42 +4,35 @@ import { categories } from '../../../db/schema';
 
 import { eq, like } from 'drizzle-orm';
 
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const search = searchParams.get('search');
-    const locale = searchParams.get('locale') || 'en';
-    const page = parseInt(searchParams.get('page') || '1');
-    const limit = parseInt(searchParams.get('limit') || '20');
-    const offset = (page - 1) * limit;
 
-    let query = db.select().from(categories).where(eq(categories.locale, locale));
+    let allCategories;
 
     if (search) {
-      query = query.where(
-        like(categories.name, `%${search}%`)
-      );
+      // 如果有搜索词，就构建一个带 where 的查询
+      allCategories = await db
+        .select()
+        .from(categories)
+        .where(like(categories.name, `%${search}%`));
+    } else {
+      // 如果没有搜索词，就构建一个不带 where 的查询
+      allCategories = await db.select().from(categories);
     }
 
-    // Count total before applying pagination
-    const countQuery = db.select({ count: db.fn.count() }).from(query.as('subquery'));
-    const [{ count }] = await countQuery;
-    
-    // Apply pagination
-    const categoriesData = await query.limit(limit).offset(offset);
-
-    return Response.json({ 
-      categories: categoriesData, 
-      total: Number(count),
-      page,
-      limit,
-      totalPages: Math.ceil(Number(count) / limit)
-    });
+    return Response.json({ categories: allCategories });
   } catch (error) {
     console.error('Error fetching categories:', error);
-    return Response.json({ error: 'Failed to fetch categories' }, { status: 500 });
+    return Response.json(
+      { error: 'Failed to fetch categories' },
+      { status: 500 }
+    );
   }
 }
+
 
 export async function POST(request: NextRequest) {
   try {

@@ -1,7 +1,6 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
 import { navMenu } from '@/db/schema';
-// 1. 确保导入了所有需要的函数
 import { eq, sql, asc } from 'drizzle-orm';
 
 export async function GET(request: NextRequest) {
@@ -21,7 +20,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// 2. 替换整个 POST 函数
+// 替换整个 POST 函数
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
@@ -47,7 +46,7 @@ export async function POST(request: NextRequest) {
       order: data.order !== undefined ? data.order : maxOrder + 1,
       locale: data.locale,
       isActive: data.isActive !== undefined ? data.isActive : true,
-    }).returning();
+    }).returning(); // <--- 加上这一行 .returning()
     
     return Response.json({ menuItem: newMenuItem, success: true });
   } catch (error) {

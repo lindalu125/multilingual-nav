@@ -30,7 +30,6 @@ export async function GET(
   }
 }
 
-// 这是你要粘贴进去的、完整的、正确的 PUT 函数
 export async function PUT(
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -44,17 +43,14 @@ export async function PUT(
     
     const data = await request.json();
     
-    // Validate required fields
     if (!data.title || !data.link || !data.locale) {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
     
-    // Check for circular reference
     if (data.parentId && data.parentId === id) {
       return Response.json({ error: 'Menu item cannot be its own parent' }, { status: 400 });
     }
     
-    // Update menu item
     const [updatedMenuItem] = await db.update(navMenu)
       .set({
         parentId: data.parentId || null,
@@ -66,7 +62,7 @@ export async function PUT(
         isActive: data.isActive !== undefined ? data.isActive : true,
       })
       .where(eq(navMenu.id, id))
-      .returning(); // 确保 .returning() 存在
+      .returning();
     
     if (!updatedMenuItem) {
       return Response.json({ error: 'Menu item not found' }, { status: 404 });
@@ -90,7 +86,6 @@ export async function DELETE(
       return Response.json({ error: 'Invalid ID' }, { status: 400 });
     }
     
-    // Check if there are children
     const children = await db.select()
       .from(navMenu)
       .where(eq(navMenu.parentId, id));
@@ -102,7 +97,6 @@ export async function DELETE(
       }, { status: 400 });
     }
     
-    // Delete the menu item
     const [deletedMenuItem] = await db.delete(navMenu)
       .where(eq(navMenu.id, id))
       .returning();

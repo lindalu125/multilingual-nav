@@ -30,7 +30,6 @@ export async function GET(
   }
 }
 
-
 // 这是你要粘贴进去的、完整的、正确的 PUT 函数
 export async function PUT(
   request: NextRequest,
@@ -79,7 +78,6 @@ export async function PUT(
     return Response.json({ error: 'Failed to update menu item' }, { status: 500 });
   }
 }
-
 
 export async function DELETE(
   request: NextRequest,

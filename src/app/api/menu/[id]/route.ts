@@ -30,6 +30,7 @@ export async function GET(
   }
 }
 
+// 请用这个完整的、正确的 PUT 函数进行替换
 export async function PUT(
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -65,7 +66,7 @@ export async function PUT(
         isActive: data.isActive !== undefined ? data.isActive : true,
       })
       .where(eq(navMenu.id, id))
-      .returning();
+      .returning(); // <--- 确保这一行 .returning() 存在
     
     if (!updatedMenuItem) {
       return Response.json({ error: 'Menu item not found' }, { status: 404 });

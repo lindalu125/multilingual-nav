@@ -1,4 +1,3 @@
-// 1. 加上这一行重要的 import
 import { NextRequest } from 'next/server';
 import { db } from '@/db';
 import { navMenu } from '@/db/schema';
